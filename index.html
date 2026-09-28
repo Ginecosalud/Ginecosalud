@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GinecoSalud | Dra. Naylen Medina</title>
+  <meta name="description" content="Consulta de Ginecología y Obstetricia. Atención exclusiva con cita previa. Láser CO2, HIFU, Colposcopia, Ebooks y más.">
+  
+  <!-- Tipografías de marca -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ===== VARIABLES Y TIPOGRAFÍAS ===== */
+    :root {
+      --primario: #4ABFB0;       
+      --primario-oscuro: #3A9E91; 
+      --secundario: #E57A92;     
+      --secundario-oscuro: #C95F76;
+      --texto: #2C3E2E;          
+      --texto-suave: #6B7F6D;
+      --fondo: #FFFFFF;
+      --fondo-alt: #F4FAF9;      
+      --borde: #D1E7E3;
+      --radio: 16px;
+      --sombra: 0 10px 30px rgba(74, 191, 176, 0.1);
+      --max-ancho: 1100px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Comfortaa', sans-serif; 
+      line-height: 1.6;
+      color: var(--texto);
+      background: var(--fondo);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    h1, h2, .titulo-great-vibes { 
+      font-family: 'Great Vibes', cursive; 
+      font-weight: 400;
+      line-height: 1.2; 
+      margin: 0 0 .5em; 
+      color: var(--primario-oscuro);
+    }
+
+    h3, h4, .subtitulo-bauhaus { 
+      font-family: 'Josefin Sans', sans-serif; 
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--texto);
+      margin: 0 0 .5em;
+    }
+
+    h1 { font-size: clamp(3rem, 6vw, 5rem); }
+    h2 { font-size: clamp(2.5rem, 5vw, 4rem); }
+    h3 { font-size: 1.3rem; }
+
+    a { color: inherit; text-decoration: none; transition: color .2s; }
+
+    .contenedor { width: min(100% - 2rem, var(--max-ancho)); margin-inline: auto; }
+    .contenedor--angosto { max-width: 650px; }
+    .seccion { padding: 5rem 0; }
+    .seccion--alt { background: var(--fondo-alt); }
+
+    .titulo-great-vibes { text-align: center; margin-bottom: 0.5rem; }
+    .subtitulo-bauhaus { text-align: center; color: var(--texto-suave); margin: 0 0 3.5rem; font-size: 1.1rem; }
+
+    /* ===== BOTONES ===== */
+    .btn {
+      display: inline-block; padding: .9rem 1.8rem; border: 2px solid transparent;
+      border-radius: 50px; background: var(--primario); color: #fff;
+      font-family: 'Josefin Sans', sans-serif; font-weight: 600; font-size: .95rem;
+      cursor: pointer; transition: all .3s ease; text-align: center;
+    }
+    .btn:hover { background: var(--primario-oscuro); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(74, 191, 176, 0.3); }
+    .btn--small { padding: .6rem 1.2rem; font-size: .85rem; }
+    .btn--ghost { background: transparent; border-color: var(--primario); color: var(--primario-oscuro); }
+    .btn--ghost:hover { background: var(--primario); color: #fff; }
+    .btn--whatsapp { background: var(--secundario); border-color: var(--secundario); }
+    .btn--whatsapp:hover { background: var(--secundario-oscuro); border-color: var(--secundario-oscuro); box-shadow: 0 5px 15px rgba(229, 122, 146, 0.3); }
+    .btn--full { width: 100%; }
+
+    /* ===== HEADER ===== */
+    .header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--borde); }
+    .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem 0; }
+    .logo img { height: 60px; }
+    .nav { display: flex; align-items: center; gap: 1.5rem; font-size: .95rem; font-weight: 500; }
+    .nav a:not(.btn):hover { color: var(--primario); }
+
+    /* ===== HERO ===== */
+    .hero { padding: 5rem 0; background: linear-gradient(135deg, #F4FAF9 0%, #E0F2F0 100%); }
+    .hero__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .hero__bienvenida { display: block; font-size: 1rem; color: var(--secundario); font-family: 'Josefin Sans', sans-serif; font-weight: 600; margin-bottom: .5rem; text-transform: uppercase; letter-spacing: 1px; }
+    .hero__descripcion { font-size: 1.1rem; color: var(--texto-suave); margin: 0 0 2rem; }
+    .hero__botones { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .hero__imagen img { border-radius: var(--radio); box-shadow: var(--sombra); border: 5px solid #fff; width: 100%; height: 500px; object-fit: cover; object-position: top; }
+
+    /* ===== AVISO DE CITA PREVIA ===== */
+    .aviso-cita { background: var(--fondo); padding: 4rem 0; }
+    .aviso-cita__contenido { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center; background: var(--fondo-alt); border-radius: var(--radio); padding: 2rem; border: 1px solid var(--borde); }
+    .aviso-cita__imagen img { border-radius: var(--radio); height: 250px; width: 100%; object-fit: cover; object-position: top; box-shadow: var(--sombra); }
+    .aviso-cita__texto h2 { color: var(--secundario); margin-bottom: 1rem; }
+
+    /* ===== SERVICIOS ===== */
+    .grid-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .card { background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); padding: 2rem 1.5rem; transition: transform .3s, box-shadow .3s; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--sombra); }
+    .card--destacada { border: 2px solid var(--secundario); background: linear-gradient(to bottom, #fff, #FFF5F7); }
+    .card__header { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.2rem; border-bottom: 2px solid var(--fondo-alt); padding-bottom: 1rem; }
+    .card__icono { font-size: 1.8rem; }
+    .card h3 { margin: 0; font-size: 1.1rem; color: var(--primario-oscuro); }
+    .card--destacada h3 { color: var(--secundario-oscuro); }
+    .card__lista { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+    .card__lista li { position: relative; padding-left: 1.5rem; margin-bottom: .8rem; font-size: .95rem; color: var(--texto-suave); }
+    .card__lista li::before { content: "🌸"; position: absolute; left: 0; top: 0; font-size: .8rem; }
+    .card--destacada .card__lista li::before { content: "✨"; }
+
+    /* ===== SOBRE / TECNOLOGÍA ===== */
+    .sobre { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .sobre__texto h2 { color: var(--primario-oscuro); }
+    .sobre__texto p { color: var(--texto-suave); margin-bottom: 1.2rem; }
+    .sobre__destacados { display: flex; gap: 1.5rem; margin-top: 2rem; }
+    .destacado { display: flex; align-items: center; gap: .8rem; background: #fff; padding: .8rem 1.2rem; border-radius: var(--radio); border: 1px solid var(--borde); }
+    .destacado span { font-size: 1.5rem; }
+    .destacado p { margin: 0; font-size: .9rem; font-weight: 500; color: var(--texto); }
+    .sobre__imagen img { border-radius: var(--radio); box-shadow: var(--sombra); width: 100%; height: 500px; object-fit: cover; object-position: top; }
+
+    /* ===== EBOOKS ===== */
+    .grid-ebooks { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+    .ebook { background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; transition: transform .3s, box-shadow .3s; display: flex; flex-direction: column; }
+    .ebook:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(74, 191, 176, 0.15); }
+    .ebook__portada { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--fondo-alt); }
+    .ebook__portada img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .ebook:hover .ebook__portada img { transform: scale(1.05); }
+    .ebook__badge { position: absolute; top: 12px; right: 12px; background: var(--secundario); color: #fff; font-size: .75rem; font-weight: 600; padding: .35rem .8rem; border-radius: 50px; text-transform: uppercase; }
+    .ebook__badge--nuevo { background: var(--primario); }
+    .ebook__contenido { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .ebook__titulo { font-size: 1.1rem; margin: 0 0 .6rem; color: var(--primario-oscuro); }
+    .ebook__descripcion { font-size: .9rem; color: var(--texto-suave); margin: 0 0 1.2rem; flex-grow: 1; }
+    .ebook__meta { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; margin-bottom: 1.2rem; border-top: 1px solid var(--borde); }
+    .ebook__formato { font-size: .8rem; color: var(--texto-suave); }
+    .ebook__precio { font-family: 'Josefin Sans', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--secundario); }
+    .ebooks__aviso { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center; background: var(--fondo-alt); border: 1px solid var(--borde); border-radius: var(--radio); padding: 1.5rem; max-width: 800px; margin: 0 auto; }
+    .ebooks__aviso-imagen img { border-radius: var(--radio); height: 200px; width: 100%; object-fit: cover; object-position: top; }
+    .ebooks__aviso-texto { display: flex; gap: 1rem; align-items: center; }
+    .ebooks__aviso-texto span { font-size: 2rem; }
+    .ebooks__aviso-texto p { margin: 0; font-size: .9rem; color: var(--texto-suave); }
+
+    /* ===== UBICACIÓN ===== */
+    .ubicacion__grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: start; }
+    .ubicacion__mapa iframe { box-shadow: var(--sombra); border: 3px solid #fff; }
+    .ubicacion__info { display: grid; gap: 1.2rem; }
+    .info-item { display: flex; gap: 1rem; align-items: flex-start; background: #fff; padding: 1.2rem; border-radius: var(--radio); border: 1px solid var(--borde); }
+    .info-item__icono { font-size: 1.8rem; flex-shrink: 0; }
+    .info-item h4 { font-family: 'Josefin Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--primario-oscuro); margin: 0 0 .3rem; }
+    .info-item p { margin: 0; font-size: .95rem; color: var(--texto-suave); line-height: 1.5; }
+    .info-item a { color: var(--secundario); font-weight: 500; text-decoration: underline; }
+    .info-item a:hover { color: var(--secundario-oscuro); }
+
+    /* ===== FAQ ===== */
+    .faq { display: grid; gap: 1rem; }
+    .faq__item { background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; transition: box-shadow .2s; }
+    .faq__item:hover { box-shadow: var(--sombra); }
+    .faq__item summary { padding: 1.2rem 1.5rem; font-family: 'Josefin Sans', sans-serif; font-weight: 600; color: var(--primario-oscuro); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-size: .95rem; }
+    .faq__item summary::-webkit-details-marker { display: none; }
+    .faq__item summary::after { content: "+"; font-size: 1.5rem; color: var(--secundario); transition: transform .2s; }
+    .faq__item[open] summary::after { content: "−"; }
+    .faq__item p { padding: 0 1.5rem 1.5rem; margin: 0; color: var(--texto-suave); font-size: .95rem; }
+
+    /* ===== FORMULARIO ===== */
+    .form { display: grid; gap: 1.25rem; background: #fff; padding: 2.5rem; border-radius: var(--radio); box-shadow: var(--sombra); border: 1px solid var(--borde); }
+    .form__aviso { background: #FFF8E6; border: 1px solid #F0D9A0; border-radius: 10px; padding: 1rem; font-size: .9rem; color: #7A5C00; line-height: 1.5; }
+    .form__campo { display: grid; gap: .4rem; }
+    .form__campo label { font-family: 'Josefin Sans', sans-serif; font-size: .9rem; font-weight: 600; color: var(--primario-oscuro); }
+    .form__campo input, .form__campo select, .form__campo textarea { width: 100%; padding: .9rem 1rem; font-family: 'Comfortaa', sans-serif; font-size: .95rem; color: var(--texto); background: var(--fondo-alt); border: 1px solid var(--borde); border-radius: 10px; transition: border-color .2s, box-shadow .2s; }
+    .form__campo input:focus, .form__campo select:focus, .form__campo textarea:focus { outline: none; border-color: var(--primario); box-shadow: 0 0 0 3px rgba(74, 191, 176, .2); background: #fff; }
+    .form__campo textarea { resize: vertical; }
+    .form__nota { text-align: center; margin-top: 1.5rem; font-size: .9rem; color: var(--texto-suave); }
+    .form__nota a { color: var(--secundario); font-weight: 600; text-decoration: underline; }
+
+    /* ===== FOOTER ===== */
+    .footer { padding: 3rem 0; background: var(--texto); color: #fff; font-size: .9rem; }
+    .footer__inner { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between; }
+    .footer__links { display: flex; gap: 1.5rem; }
+    .footer__links a:hover { color: var(--primario); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero__inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hero__imagen img { height: 400px; }
+      .hero__botones { justify-content: center; }
+      .aviso-cita__contenido { grid-template-columns: 1fr; text-align: center; }
+      .aviso-cita__imagen img { height: 250px; }
+      .sobre { grid-template-columns: 1fr; gap: 2rem; }
+      .sobre__imagen img { height: 400px; }
+      .sobre__destacados { flex-direction: column; gap: 1rem; }
+      .ubicacion__grid { grid-template-columns: 1fr; }
+      .ebooks__aviso { grid-template-columns: 1fr; text-align: center; }
+      .ebooks__aviso-imagen img { height: 250px; }
+    }
+
+    @media (max-width: 768px) {
+      .seccion { padding: 3.5rem 0; }
+      .hero { padding: 3rem 0; }
+      .hero__imagen img { height: 350px; }
+      .nav { gap: 1rem; font-size: .85rem; }
+      .nav a:not(.btn) { display: none; } 
+      .footer__inner { flex-direction: column; text-align: center; }
+      .form { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="contenedor header__inner">
+      <a href="#inicio" class="logo">
+        <img src="logo.png" alt="GinecoSalud Logo">
+      </a>
+      <nav class="nav">
+        <a href="#servicios">Servicios</a>
+        <a href="#ebooks">Ebooks</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#contacto" class="btn btn--small btn--whatsapp">Agendar Cita</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="contenedor hero__inner">
+        <div class="hero__texto">
+          <span class="hero__bienvenida">¡Hola! Bienvenida a la consulta de la</span>
+          <h1 class="titulo-great-vibes">Dra. Naylen Medina</h1>
+          <p class="subtitulo-bauhaus">Ginecología y Obstetricia</p>
+          <p class="hero__descripcion">
+            Ofrecemos atención integral y personalizada para la mujer. 
+            Tu salud y bienestar son nuestra prioridad.
+          </p>
+          <div class="hero__botones">
+            <a href="https://wa.me/584120000000?text=Hola%20Dra.%20Naylen,%20quisiera%20agendar%20una%20cita." target="_blank" class="btn btn--whatsapp">💬 Agendar por WhatsApp</a>
+            <a href="#servicios" class="btn btn--ghost">Ver Servicios</a>
+          </div>
+        </div>
+        <div class="hero__imagen">
+          <img src="foto-perfil.jpg" alt="Dra. Naylen Medina">
+        </div>
+      </div>
+    </section>
+
+    <!-- AVISO DE CITA PREVIA -->
+    <section class="aviso-cita">
+      <div class="contenedor">
+        <div class="aviso-cita__contenido">
+          <div class="aviso-cita__imagen">
+             <img src="foto-cita.jpg" alt="Atención con cita previa">
+          </div>
+          <div class="aviso-cita__texto">
+            <h2 class="subtitulo-bauhaus">Atención exclusiva con cita previa</h2>
+            <p>Para brindarte una atención personalizada y sin esperas, <strong>trabajamos únicamente con reservación de horario</strong>. Por favor, agenda tu cita antes de asistir.</p>
+            <a href="https://wa.me/584120000000" target="_blank" class="btn btn--small">Reservar mi horario</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="seccion" id="servicios">
+      <div class="contenedor">
+        <h2 class="titulo-great-vibes">Nuestros Servicios</h2>
+        <p class="subtitulo-bauhaus">Atención médica especializada para cada etapa de tu vida</p>
+
+        <div class="grid-servicios">
+          <article class="card">
+            <div class="card__header"><span class="card__icono">🌸</span><h3>Ginecología</h3></div>
+            <ul class="card__lista">
+              <li>Control ginecológico</li><li>Citología</li><li>Ecografía transabdominal</li>
+              <li>Colocación y retiro de dispositivos</li><li>Vacuna y tipificación de VPH</li>
+              <li>Biopsias ginecológicas</li><li>Colposcopia</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__header"><span class="card__icono">🤰</span><h3>Obstetricia</h3></div>
+            <ul class="card__lista">
+              <li>Consulta prenatal bajo riesgo</li><li>Consulta prenatal de alto riesgo</li>
+              <li>Ecografía del 1er, 2do y 3er trimestre</li><li>Atención del parto</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__header"><span class="card__icono">🩺</span><h3>Cirugía Ginecológica</h3></div>
+            <ul class="card__lista">
+              <li>Cesárea segmentaria</li><li>Legrado uterino</li><li>Histerectomía</li>
+              <li>Esterilización quirúrgica</li><li>Prolapso de órgano pélvico</li>
+            </ul>
+          </article>
+
+          <article class="card card--destacada">
+            <div class="card__header"><span class="card__icono">⚡</span><h3>Tecnología y Estética</h3></div>
+            <ul class="card__lista">
+              <li>Tratamientos con Láser CO2</li><li>HIFU Facial y Vaginal</li>
+              <li>Aplicación ginecológica de plasma</li><li>Estética regenerativa íntima</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECNOLOGÍA -->
+    <section class="seccion seccion--alt" id="tecnologia">
+      <div class="contenedor sobre">
+        <div class="sobre__texto">
+          <h2 class="titulo-great-vibes">Tecnología de Vanguardia</h2>
+          <p>En <strong>GinecoSalud</strong> contamos con equipos de última generación para ofrecerte tratamientos mínimamente invasivos y altamente efectivos.</p>
+          <p>El <strong>Láser CO2</strong> y el <strong>HIFU</strong> nos permiten realizar procedimientos de estética regenerativa, tanto facial como vaginal, mejorando la calidad de vida de nuestras pacientes.</p>
+          <div class="sobre__destacados">
+            <div class="destacado"><span>🔬</span><p>Resultados de exámenes</p></div>
+            <div class="destacado"><span>💖</span><p>Atención cálida y personalizada</p></div>
+          </div>
+        </div>
+        <div class="sobre__imagen">
+          <img src="foto-tecnologia.jpg" alt="Tecnología médica GinecoSalud">
+        </div>
+      </div>
+    </section>
+
+    <!-- EBOOKS -->
+    <section class="seccion" id="ebooks">
+      <div class="contenedor">
+        <h2 class="titulo-great-vibes">Ebooks y Guías de Salud</h2>
+        <p class="subtitulo-bauhaus">Material educativo escrito por la Dra. Naylen Medina</p>
+
+        <div class="grid-ebooks">
+          <article class="ebook">
+            <div class="ebook__portada">
+              <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=400" alt="Portada Guía del Embarazo">
+              <span class="ebook__badge">Más vendido</span>
+            </div>
+            <div class="ebook__contenido">
+              <h3 class="subtitulo-bauhaus">Guía del Embarazo Mes a Mes</h3>
+              <p class="ebook__descripcion">Todo lo que necesitas saber desde el primer mes hasta el parto.</p>
+              <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 60 páginas</span><span class="ebook__precio">$15</span></div>
+              <a href="https://wa.me/584120000000?text=Hola,%20quiero%20comprar%20la%20Guía%20del%20Embarazo" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
+            </div>
+          </article>
+
+          <article class="ebook">
+            <div class="ebook__portada"><img src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?auto=format&fit=crop&q=80&w=400" alt="Portada Menopausia"></div>
+            <div class="ebook__contenido">
+              <h3 class="subtitulo-bauhaus">Menopausia sin Miedos</h3>
+              <p class="ebook__descripcion">Una guía práctica para entender los cambios hormonales y vivir con plenitud.</p>
+              <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 45 páginas</span><span class="ebook__precio">$12</span></div>
+              <a href="https://wa.me/584120000000?text=Hola,%20quiero%20comprar%20Menopausia%20sin%20Miedos" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
+            </div>
+          </article>
+
+          <article class="ebook">
+            <div class="ebook__portada"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80&w=400" alt="Portada Cuidado Íntimo"></div>
+            <div class="ebook__contenido">
+              <h3 class="subtitulo-bauhaus">Cuidado Íntimo Femenino</h3>
+              <p class="ebook__descripcion">Aprende a cuidar tu salud íntima, higiene, infecciones y anticoncepción.</p>
+              <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 40 páginas</span><span class="ebook__precio">$10</span></div>
+              <a href="https://wa.me/584120000000?text=Hola,%20quiero%20comprar%20Cuidado%20Íntimo" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
+            </div>
+          </article>
+          
+          <article class="ebook">
+            <div class="ebook__portada">
+              <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=400" alt="Portada Estética Íntima">
+              <span class="ebook__badge ebook__badge--nuevo">Nuevo</span>
+            </div>
+            <div class="ebook__contenido">
+              <h3 class="subtitulo-bauhaus">Estética Íntima Regenerativa</h3>
+              <p class="ebook__descripcion">Descubre cómo funcionan el Láser CO2, el HIFU vaginal y el plasma.</p>
+              <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 35 páginas</span><span class="ebook__precio">$18</span></div>
+              <a href="https://wa.me/584120000000?text=Hola,%20quiero%20comprar%20Estética%20Íntima" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="ebooks__aviso">
+          <div class="ebooks__aviso-imagen">
+             <img src="foto-ebooks.jpg" alt="Dra. Naylen Medina Ebooks">
+          </div>
+          <div class="ebooks__aviso-texto">
+            <span>🔒</span>
+            <p>Todos los pagos son seguros. Recibirás tu ebook en tu correo electrónico <strong>en un plazo máximo de 24 horas</strong> tras confirmar el pago. Si tienes dudas, escríbenos por WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section class="seccion seccion--alt" id="ubicacion">
+      <div class="contenedor">
+        <h2 class="titulo-great-vibes">Ubicación y Horario</h2>
+        <p class="subtitulo-bauhaus">Te esperamos con cita previa</p>
+
+        <div class="ubicacion__grid">
+          <div class="ubicacion__mapa">
+            <!-- ⚠️ Reemplace este iframe con el suyo de Google Maps -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.5!2d-66.9!3d10.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDMwJzAwLjAiTiA2NsKwNTQnMDAuMCJX!5e0!3m2!1ses!2sve!4v1234567890" width="100%" height="400" style="border:0; border-radius: 16px;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+          <div class="ubicacion__info">
+            <div class="info-item">
+              <span class="info-item__icono">📍</span>
+              <div><h4>Dirección</h4><p>Consulta de la Dra. Naylen Medina<br><a href="https://maps.app.goo.gl/1TZD5fv7c6Ln4dFd9" target="_blank">Ver en Google Maps</a></p></div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icono">🕐</span>
+              <div><h4>Horario de atención</h4><p>Lunes a Viernes: 8:00 AM - 5:00 PM<br>Sábados: 8:00 AM - 12:00 PM<br><em>(Solo con cita previa)</em></p></div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icono">📞</span>
+              <div><h4>Contacto</h4><p>WhatsApp: <a href="https://wa.me/584120000000" target="_blank">+58 412 000 0000</a><br>Email: <a href="mailto:info@ginecosalud.com">info@ginecosalud.com</a></p></div>
+            </div>
+            <div class="info-item">
+              <span class="info-item__icono">🚗</span>
+              <div><h4>Estacionamiento</h4><p>Contamos con estacionamiento disponible para nuestras pacientes.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="seccion" id="faq">
+      <div class="contenedor contenedor--angosto">
+        <h2 class="titulo-great-vibes">Preguntas Frecuentes</h2>
+        <p class="subtitulo-bauhaus">Resolvemos tus dudas antes de tu visita</p>
+        <div class="faq">
+          <details class="faq__item"><summary>¿Necesito cita previa para ser atendida?</summary><p>Sí. En GinecoSalud trabajamos exclusivamente con cita previa para garantizar una atención personalizada y sin tiempos de espera prolongados.</p></details>
+          <details class="faq__item"><summary>¿Qué debo llevar a mi primera consulta?</summary><p>Te recomendamos traer tu cédula de identidad, exámenes previos (si los tienes), y una lista de los medicamentos que estés tomando actualmente.</p></details>
+          <details class="faq__item"><summary>¿Aceptan seguros o formas de pago?</summary><p>La consulta es de carácter privado. Aceptamos efectivo, transferencia bancaria y pago móvil. Si deseas factura para reembolso, indícalo al agendar.</p></details>
+          <details class="faq__item"><summary>¿Cómo puedo cancelar o reprogramar mi cita?</summary><p>Te pedimos avisarnos con al menos 24 horas de anticipación por WhatsApp para poder ofrecer ese espacio a otra paciente.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="seccion seccion--alt" id="contacto">
+      <div class="contenedor contenedor--angosto">
+        <h2 class="titulo-great-vibes">Solicitar Cita</h2>
+        <p class="subtitulo-bauhaus">Completa el formulario y te contactaremos</p>
+        <form class="form" name="contacto" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contacto">
+          <div class="form__aviso">⚠️ <strong>Importante:</strong> El envío de este formulario no confirma tu cita. Nuestro staff se comunicará contigo para verificar disponibilidad.</div>
+          <div class="form__campo"><label for="nombre">Nombre y Apellido</label><input type="text" id="nombre" name="nombre" placeholder="Ej: María Pérez" required></div>
+          <div class="form__campo"><label for="telefono">Teléfono / WhatsApp</label><input type="tel" id="telefono" name="telefono" placeholder="Ej: +58 412 1234567" required></div>
+          <div class="form__campo">
+            <label for="servicio">Servicio de interés</label>
+            <select id="servicio" name="servicio" required>
+              <option value="">Selecciona un servicio...</option>
+              <option value="Consulta Ginecológica">Consulta Ginecológica</option>
+              <option value="Consulta Prenatal">Consulta Prenatal</option>
+              <option value="Colposcopia">Colposcopia</option>
+              <option value="Ecografía">Ecografía</option>
+              <option value="Láser CO2 / HIFU">Láser CO2 / HIFU</option>
+              <option value="Procedimientos">Procedimientos (DIU, Implantes, Biopsias)</option>
+              <option value="Ebooks">Compra de Ebooks</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="form__campo"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos brevemente el motivo de tu consulta..."></textarea></div>
+          <button type="submit" class="btn btn--full btn--whatsapp">Enviar Solicitud</button>
+        </form>
+        <p class="form__nota">O si prefieres, escríbenos directamente al <a href="https://wa.me/584120000000" target="_blank">WhatsApp</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer__inner">
+      <div class="footer__logo"><img src="logo.png" alt="GinecoSalud" style="height: 50px;"></div>
+      <p>&copy; 2025 GinecoSalud - Dra. Naylen Medina. Todos los derechos reservados.</p>
+      <div class="footer__links"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Política de Privacidad</a></div>
+    </div>
+  </footer>
+
+</body>
+</html>
