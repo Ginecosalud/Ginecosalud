@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad y Consentimiento Informado | GinecoSalud</title>
+  <meta name="description" content="Política de privacidad, manejo de datos clínicos y consentimiento informado del Consultorio GinecoSalud - Dra. Naylen Medina.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ===== VARIABLES ===== */
+    :root {
+      --primario: #4ABFB0;       
+      --primario-oscuro: #3A9E91; 
+      --secundario: #E57A92;     
+      --secundario-oscuro: #C95F76;
+      --texto: #2C3E2E;          
+      --texto-suave: #4A5C4C;
+      --fondo: #FFFFFF;
+      --fondo-alt: #F4FAF9;      
+      --borde: #D1E7E3;
+      --radio: 16px;
+      --sombra: 0 10px 30px rgba(74, 191, 176, 0.1);
+      --max-ancho: 820px; /* Más angosto para lectura cómoda */
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      /* Tipografía de lectura para documentos largos */
+      font-family: 'Lora', Georgia, serif;
+      font-size: 18px; /* Tamaño base generoso para legibilidad */
+      line-height: 1.85; /* Interlineado amplio para lectura cómoda */
+      color: var(--texto);
+      background: var(--fondo-alt);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HEADER SIMPLE ===== */
+    .header-doc {
+      background: #fff;
+      border-bottom: 1px solid var(--borde);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .header-doc__inner {
+      width: min(100% - 2rem, var(--max-ancho));
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .header-doc__logo {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--primario-oscuro);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .header-doc__volver {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--secundario);
+      text-decoration: none;
+      padding: .5rem 1rem;
+      border: 2px solid var(--secundario);
+      border-radius: 50px;
+      transition: all .3s ease;
+    }
+
+    .header-doc__volver:hover {
+      background: var(--secundario);
+      color: #fff;
+    }
+
+    /* ===== CONTENEDOR DEL DOCUMENTO ===== */
+    .documento {
+      width: min(100% - 2rem, var(--max-ancho));
+      margin: 2rem auto;
+      background: #fff;
+      padding: 3rem 2.5rem;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      border: 1px solid var(--borde);
+    }
+
+    /* ===== TÍTULOS ===== */
+    .documento__titulo {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      font-size: clamp(2.5rem, 6vw, 3.8rem);
+      color: var(--primario-oscuro);
+      text-align: center;
+      margin: 0 0 .5rem;
+      line-height: 1.1;
+    }
+
+    .documento__subtitulo {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--texto);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--fondo-alt);
+    }
+
+    .seccion-titulo {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--primario-oscuro);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin: 3rem 0 1.5rem;
+      padding-bottom: .75rem;
+      border-bottom: 2px solid var(--primario);
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .seccion-titulo::before {
+      content: "🌸";
+      font-size: 1.1rem;
+    }
+
+    .subseccion-titulo {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--secundario-oscuro);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 2rem 0 .75rem;
+    }
+
+    /* ===== PÁRRAFOS Y TEXTO ===== */
+    .documento p {
+      margin: 0 0 1.25rem;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .documento strong {
+      color: var(--primario-oscuro);
+      font-weight: 600;
+    }
+
+    .documento em {
+      color: var(--texto-suave);
+    }
+
+    /* ===== LISTAS ===== */
+    .documento ul, .documento ol {
+      margin: 0 0 1.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .documento li {
+      margin-bottom: .75rem;
+      text-align: justify;
+    }
+
+    .documento ul li::marker {
+      color: var(--secundario);
+      font-size: 1.1em;
+    }
+
+    /* ===== CAJAS DESTACADAS ===== */
+    .caja-destacada {
+      background: var(--fondo-alt);
+      border-left: 4px solid var(--primario);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .caja-destacada p:last-child {
+      margin-bottom: 0;
+    }
+
+    .caja-aviso {
+      background: #FFF8E6;
+      border-left: 4px solid #E5A500;
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      margin: 2.5rem 0 1rem;
+      font-size: .95rem;
+    }
+
+    .caja-aviso p:last-child {
+      margin-bottom: 0;
+    }
+
+    .caja-aviso strong {
+      color: #7A5C00;
+    }
+
+    /* ===== INTRODUCCIÓN ===== */
+    .intro {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--texto-suave);
+      text-align: center;
+      padding: 0 1rem;
+      margin-bottom: 2.5rem;
+      border-left: none !important;
+    }
+
+    /* ===== EDADES (Sección III) ===== */
+    .grupo-edad {
+      background: #fff;
+      border: 2px solid var(--borde);
+      border-radius: var(--radio);
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      transition: border-color .3s;
+    }
+
+    .grupo-edad:hover {
+      border-color: var(--primario);
+    }
+
+    .grupo-edad__titulo {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--secundario-oscuro);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .grupo-edad__titulo span {
+      font-size: 1.4rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-doc {
+      background: var(--texto);
+      color: #fff;
+      padding: 2rem 0;
+      text-align: center;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: .85rem;
+    }
+
+    .footer-doc a {
+      color: var(--primario);
+      text-decoration: none;
+    }
+
+    .footer-doc a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      body { font-size: 17px; line-height: 1.8; }
+      .documento {
+        padding: 2rem 1.25rem;
+        margin: 1rem auto;
+        border-radius: 12px;
+      }
+      .seccion-titulo {
+        font-size: 1rem;
+        margin: 2.5rem 0 1.25rem;
+      }
+      .grupo-edad {
+        padding: 1.25rem;
+      }
+      .caja-destacada, .caja-aviso {
+        padding: 1.25rem;
+      }
+      .header-doc__inner {
+        flex-direction: column;
+        gap: .75rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header-doc">
+    <div class="header-doc__inner">
+      <div class="header-doc__logo">GinecoSalud</div>
+      <a href="index.html" class="header-doc__volver">← Volver al inicio</a>
+    </div>
+  </header>
+
+  <main class="documento">
+    
+    <h1 class="documento__titulo">Política de Privacidad</h1>
+    <p class="documento__subtitulo">y Consentimiento Informado</p>
+
+    <p class="intro">
+      En cumplimiento de lo establecido en la <strong>Constitución de la República Bolivariana de Venezuela</strong>, la 
+      <strong>Ley Orgánica para la Protección de Niños, Niñas y Adolescentes (LOPNNA)</strong>, la <strong>Ley del Ejercicio de la Medicina</strong>, 
+      el <strong>Código de Deontología Médica</strong> y la <strong>Ley Orgánica sobre el Derecho de las Mujeres a una Vida Libre de Violencia</strong>, 
+      el Consultorio GinecoSalud presenta el siguiente documento que regula el manejo de la información clínica y el otorgamiento 
+      del consentimiento informado. Este documento se aplicará <strong>según corresponda al caso y a la edad de la paciente</strong>.
+    </p>
+
+    <!-- SECCIÓN I -->
+    <h2 class="seccion-titulo">Sección I. Marco Legal y Principios Rectores</h2>
+    <p>La atención en este consultorio se fundamenta en los siguientes pilares legales:</p>
+    <ol>
+      <li>
+        <strong>Derecho a la Salud y a la Integridad Personal:</strong> La Constitución de la República Bolivariana de Venezuela establece en su 
+        <strong>artículo 83</strong> que la salud es un derecho social fundamental, y en su <strong>artículo 46, numeral 3</strong>, que ninguna persona 
+        será sometida sin su libre consentimiento a exámenes médicos o de laboratorio, excepto cuando se encuentre en peligro su vida.
+      </li>
+      <li>
+        <strong>Derecho a la Privacidad y a la Intimidad:</strong> El <strong>artículo 60</strong> de la Constitución consagra el derecho de toda persona 
+        a su honor, vida privada, intimidad, propia imagen, confidencialidad y reputación. Asimismo, el <strong>artículo 28</strong> garantiza el derecho de 
+        acceso a la información y a los datos que sobre sí misma consten en registros oficiales o privados.
+      </li>
+      <li>
+        <strong>Protección de la Infancia y Adolescencia:</strong> La LOPNNA establece el principio del <strong>Interés Superior del Niño, Niña y Adolescente</strong>, 
+        y en su <strong>artículo 50</strong> garantiza el derecho a ser informados y educados en salud sexual y reproductiva, así como a recibir servicios 
+        con respeto a su privacidad y libre consentimiento. Adicionalmente, el <strong>artículo 65</strong> consagra el derecho al honor, reputación, propia 
+        imagen, vida privada e intimidad familiar.
+      </li>
+      <li>
+        <strong>Secreto Médico:</strong> La Ley del Ejercicio de la Medicina, en su <strong>artículo 46</strong>, establece que el secreto médico es inviolable 
+        y que todo aquello que llegare a conocimiento del médico con motivo de su ejercicio no podrá darse a conocer.
+      </li>
+      <li>
+        <strong>Consentimiento Informado:</strong> El Código de Deontología Médica, en su <strong>artículo 15</strong>, dispone que el médico pedirá el 
+        consentimiento del paciente para aplicar procedimientos diagnósticos y terapéuticos que puedan afectarlo física o psíquicamente.
+      </li>
+      <li>
+        <strong>Derecho a una Vida Libre de Violencia:</strong> La Ley Orgánica sobre el Derecho de las Mujeres a una Vida Libre de Violencia, en su 
+        <strong>artículo 19</strong>, tipifica la violencia sexual como toda conducta que amenace o vulnere el derecho de la mujer a decidir voluntaria 
+        y libremente su sexualidad.
+      </li>
+    </ol>
+
+    <!-- SECCIÓN II -->
+    <h2 class="seccion-titulo">Sección II. Política de Privacidad y Manejo de la Información Clínica</h2>
+
+    <h3 class="subseccion-titulo">2.1. Confidencialidad de la Historia Clínica</h3>
+    <p>
+      Toda la información contenida en la historia clínica es <strong>estrictamente confidencial</strong>. Solo será revelada con el consentimiento 
+      informado, previo y por escrito de la paciente, o en los casos de excepción previstos en el <strong>artículo 47 de la Ley del Ejercicio de la Medicina</strong>, 
+      que incluyen: cuando la revelación sea mandato de ley, cuando se trate de salvar la vida o el honor de las personas, o cuando se trate de impedir 
+      la condena de un inocente.
+    </p>
+
+    <h3 class="subseccion-titulo">2.2. Protección de Datos Sensibles</h3>
+    <p>
+      Los datos relativos a la salud sexual y reproductiva son considerados <strong>datos sensibles</strong> y gozarán de la máxima protección. Su tratamiento 
+      se realizará conforme a los principios de finalidad, proporcionalidad y confidencialidad.
+    </p>
+
+    <h3 class="subseccion-titulo">2.3. Excepciones al Secreto Médico</h3>
+    <p>El secreto médico cederá en los siguientes supuestos legales:</p>
+    <ul>
+      <li>Cuando exista una obligación legal de notificación a las autoridades sanitarias (ej. enfermedades de notificación obligatoria).</li>
+      <li>Cuando sea necesario para salvar la vida de la paciente o de un tercero.</li>
+      <li>Cuando medie una orden judicial.</li>
+      <li>Cuando sea necesario para impedir la condena de un inocente.</li>
+    </ul>
+
+    <!-- SECCIÓN III -->
+    <h2 class="seccion-titulo">Sección III. Consentimiento Informado según la Edad de la Paciente</h2>
+    <p>
+      El consentimiento informado es un proceso mediante el cual se le proporciona a la paciente información clara, veraz y suficiente sobre su 
+      diagnóstico, el procedimiento propuesto, sus riesgos, beneficios y alternativas, para que pueda tomar una decisión libre y voluntaria. 
+      El <strong>Código de Deontología Médica</strong> y la <strong>LOPNNA</strong> establecen diferentes niveles de capacidad según la edad:
+    </p>
+
+    <!-- GRUPO 1: Menores de 14 -->
+    <div class="grupo-edad">
+      <h3 class="grupo-edad__titulo"><span>👧</span> Pacientes Menores de 14 años (de 6 a 13 años)</h3>
+      <ul>
+        <li>
+          <strong>Asentimiento Informado:</strong> La paciente tiene derecho a ser informada sobre su estado de salud y a expresar su opinión. 
+          Su opinión será tomada en cuenta según su nivel de madurez y desarrollo.
+        </li>
+        <li>
+          <strong>Consentimiento Legal:</strong> El consentimiento para cualquier procedimiento diagnóstico o terapéutico deberá ser otorgado por 
+          sus <strong>padres, representantes legales o cuidadores</strong> debidamente acreditados. El asentimiento del menor no reemplaza el 
+          consentimiento de los representantes legales.
+        </li>
+      </ul>
+    </div>
+
+    <!-- GRUPO 2: 14 a 17 -->
+    <div class="grupo-edad">
+      <h3 class="grupo-edad__titulo"><span>🌸</span> Pacientes Adolescentes (de 14 a 17 años)</h3>
+      <ul>
+        <li>
+          <strong>Consentimiento Informado:</strong> De acuerdo con la LOPNNA y la legislación venezolana, los adolescentes <strong>mayores de 14 años</strong> 
+          tienen derecho a solicitar por sí mismos y recibir servicios de salud sexual y reproductiva, incluyendo la dispensación de métodos 
+          anticonceptivos, con la adecuada consejería y sin la necesidad de estar acompañados de un representante.
+        </li>
+        <li>
+          <strong>Asentimiento del Representante:</strong> A partir de los <strong>15 años</strong>, el adolescente está en capacidad de dar su 
+          consentimiento informado y puede autorizar a su representante legal para que lo otorgue en su nombre.
+        </li>
+        <li>
+          <strong>Procedimientos Invasivos:</strong> Para procedimientos médicos o quirúrgicos que impliquen un riesgo significativo o que no sean 
+          de carácter urgente, se requerirá la comparecencia y firma de consentimiento informado del <strong>padre, madre o representante legal 
+          debidamente acreditado</strong>.
+        </li>
+        <li>
+          <strong>Representación Legal:</strong> Se entenderá por representante legal al padre, madre, tutor o curador designado por autoridad 
+          competente. <strong>La pareja del paciente, independientemente de su edad, no posee esta cualidad legal</strong>, salvo que exista una 
+          <strong>emancipación</strong> o <strong>tutela</strong> debidamente protocolizada ante notaría.
+        </li>
+        <li>
+          <strong>Autorización Especial:</strong> En caso de que el representante legal no pueda asistir presencialmente, deberá otorgar una 
+          <strong>autorización por poder notariado</strong> a una persona de su confianza, quien deberá presentar su cédula de identidad y el 
+          documento notariado original al momento de la consulta.
+        </li>
+      </ul>
+    </div>
+
+    <!-- GRUPO 3: Mayores de edad -->
+    <div class="grupo-edad">
+      <h3 class="grupo-edad__titulo"><span>💖</span> Pacientes Mayores de Edad (18 años o más)</h3>
+      <ul>
+        <li>
+          <strong>Consentimiento Informado:</strong> La paciente otorgará su consentimiento informado de manera <strong>libre, voluntaria y por 
+          escrito</strong> para todos los procedimientos diagnósticos y terapéuticos que se le practiquen.
+        </li>
+        <li>
+          <strong>Derecho a la Información:</strong> Tiene derecho a ser informada de la naturaleza de su padecimiento, los riesgos, beneficios y 
+          alternativas disponibles.
+        </li>
+      </ul>
+    </div>
+
+    <!-- GRUPO 4: Procedimientos específicos -->
+    <div class="grupo-edad">
+      <h3 class="grupo-edad__titulo"><span>⚕️</span> Procedimientos Específicos</h3>
+      <p>
+        Para procedimientos como la colocación de dispositivos intrauterinos, biopsias, tratamientos con láser, HIFU, aplicación de plasma o 
+        cualquier otro procedimiento invasivo, se requerirá la firma del consentimiento informado específico, siguiendo los criterios de edad 
+        detallados anteriormente.
+      </p>
+    </div>
+
+    <!-- SECCIÓN IV -->
+    <h2 class="seccion-titulo">Sección IV. Detección y Manejo de Casos de Violencia</h2>
+    <div class="caja-destacada">
+      <p>
+        En caso de que se detecten signos de violencia física, psicológica o sexual, el personal del Consultorio GinecoSalud activará un protocolo 
+        de atención basado en la <strong>Ley Orgánica sobre el Derecho de las Mujeres a una Vida Libre de Violencia</strong>. Se garantizará a la 
+        paciente un trato digno, confidencial y respetuoso, y se le informará sobre los recursos legales y de apoyo disponibles, incluyendo la 
+        posibilidad de interponer una denuncia ante las autoridades competentes.
+      </p>
+    </div>
+
+    <!-- AVISO FINAL -->
+    <div class="caja-aviso">
+      <p>
+        <strong>📌 Nota importante:</strong> Este documento tiene carácter informativo para la paciente y su representante legal. 
+        La firma del consentimiento informado correspondiente a cada procedimiento se realiza de manera presencial en el consultorio, 
+        como parte del proceso de atención médica.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-doc">
+    <p>© 2025 GinecoSalud - Dra. Naylen Medina · <a href="index.html">Volver al inicio</a></p>
+  </footer>
+
+</body>
+</html>
