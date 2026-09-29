@@ -108,8 +108,41 @@
     .aviso-cita__imagen img { border-radius: var(--radio); height: 250px; width: 100%; object-fit: cover; object-position: top; box-shadow: var(--sombra); }
     .aviso-cita__texto h2 { color: var(--secundario); margin-bottom: 1rem; }
 
-    /* ===== SERVICIOS ===== */
-    .grid-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    /* ===== CARRUSELES (SERVICIOS Y EBOOKS) ===== */
+    .carrusel-contenedor {
+      position: relative;
+      margin: 0 -1rem; /* Expandir un poco a los lados */
+      padding: 0 1rem;
+      overflow: hidden; /* Evita que se salga de la pantalla */
+    }
+
+    .carrusel {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1.5rem;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE */
+      scroll-behavior: smooth;
+    }
+
+    .carrusel::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Brave */
+    }
+
+    .card, .ebook {
+      flex: 0 0 300px; /* Tamaño fijo para cada tarjeta en el carrusel */
+      scroll-snap-align: center;
+      max-width: 300px;
+    }
+
+    /* Ajuste para pantallas muy pequeñas */
+    @media (max-width: 400px) {
+      .card, .ebook { flex: 0 0 260px; max-width: 260px; }
+    }
+
+    /* ===== TARJETAS (SERVICIOS) ===== */
     .card { background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); padding: 2rem 1.5rem; transition: transform .3s, box-shadow .3s; display: flex; flex-direction: column; }
     .card:hover { transform: translateY(-5px); box-shadow: var(--sombra); }
     .card--destacada { border: 2px solid var(--secundario); background: linear-gradient(to bottom, #fff, #FFF5F7); }
@@ -133,7 +166,6 @@
     .sobre__imagen img { border-radius: var(--radio); box-shadow: var(--sombra); width: 100%; height: 500px; object-fit: cover; object-position: top; }
 
     /* ===== EBOOKS ===== */
-    .grid-ebooks { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
     .ebook { background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); overflow: hidden; transition: transform .3s, box-shadow .3s; display: flex; flex-direction: column; }
     .ebook:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(74, 191, 176, 0.15); }
     .ebook__portada { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--fondo-alt); }
@@ -273,45 +305,47 @@
       </div>
     </section>
 
-    <!-- SERVICIOS -->
+    <!-- SERVICIOS (CARRUSEL) -->
     <section class="seccion" id="servicios">
       <div class="contenedor">
         <h2 class="titulo-great-vibes">Nuestros Servicios</h2>
-        <p class="subtitulo-bauhaus">Atención médica especializada para cada etapa de tu vida</p>
+        <p class="subtitulo-bauhaus">Desliza para ver más ➜</p>
 
-        <div class="grid-servicios">
-          <article class="card">
-            <div class="card__header"><span class="card__icono">🌸</span><h3>Ginecología</h3></div>
-            <ul class="card__lista">
-              <li>Control ginecológico</li><li>Citología</li><li>Ecografía transabdominal</li>
-              <li>Colocación y retiro de dispositivos</li><li>Vacuna y tipificación de VPH</li>
-              <li>Biopsias ginecológicas</li><li>Colposcopia</li>
-            </ul>
-          </article>
+        <div class="carrusel-contenedor">
+          <div class="carrusel">
+            <article class="card">
+              <div class="card__header"><span class="card__icono">🌸</span><h3>Ginecología</h3></div>
+              <ul class="card__lista">
+                <li>Control ginecológico</li><li>Citología</li><li>Ecografía transabdominal</li>
+                <li>Colocación y retiro de dispositivos</li><li>Vacuna y tipificación de VPH</li>
+                <li>Biopsias ginecológicas</li><li>Colposcopia</li>
+              </ul>
+            </article>
 
-          <article class="card">
-            <div class="card__header"><span class="card__icono">🤰</span><h3>Obstetricia</h3></div>
-            <ul class="card__lista">
-              <li>Consulta prenatal bajo riesgo</li><li>Consulta prenatal de alto riesgo</li>
-              <li>Ecografía del 1er, 2do y 3er trimestre</li><li>Atención del parto</li>
-            </ul>
-          </article>
+            <article class="card">
+              <div class="card__header"><span class="card__icono">🤰</span><h3>Obstetricia</h3></div>
+              <ul class="card__lista">
+                <li>Consulta prenatal bajo riesgo</li><li>Consulta prenatal de alto riesgo</li>
+                <li>Ecografía del 1er, 2do y 3er trimestre</li><li>Atención del parto</li>
+              </ul>
+            </article>
 
-          <article class="card">
-            <div class="card__header"><span class="card__icono">🩺</span><h3>Cirugía Ginecológica</h3></div>
-            <ul class="card__lista">
-              <li>Cesárea segmentaria</li><li>Legrado uterino</li><li>Histerectomía</li>
-              <li>Esterilización quirúrgica</li><li>Prolapso de órgano pélvico</li>
-            </ul>
-          </article>
+            <article class="card">
+              <div class="card__header"><span class="card__icono">🩺</span><h3>Cirugía Ginecológica</h3></div>
+              <ul class="card__lista">
+                <li>Cesárea segmentaria</li><li>Legrado uterino</li><li>Histerectomía</li>
+                <li>Esterilización quirúrgica</li><li>Prolapso de órgano pélvico</li>
+              </ul>
+            </article>
 
-          <article class="card card--destacada">
-            <div class="card__header"><span class="card__icono">⚡</span><h3>Tecnología y Estética</h3></div>
-            <ul class="card__lista">
-              <li>Tratamientos con Láser CO2</li><li>HIFU Facial y Vaginal</li>
-              <li>Aplicación ginecológica de plasma</li><li>Estética regenerativa íntima</li>
-            </ul>
-          </article>
+            <article class="card card--destacada">
+              <div class="card__header"><span class="card__icono">⚡</span><h3>Tecnología y Estética</h3></div>
+              <ul class="card__lista">
+                <li>Tratamientos con Láser CO2</li><li>HIFU Facial y Vaginal</li>
+                <li>Aplicación ginecológica de plasma</li><li>Estética regenerativa íntima</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -334,58 +368,60 @@
       </div>
     </section>
 
-    <!-- EBOOKS -->
+    <!-- EBOOKS (CARRUSEL) -->
     <section class="seccion" id="ebooks">
       <div class="contenedor">
         <h2 class="titulo-great-vibes">Ebooks y Guías de Salud</h2>
-        <p class="subtitulo-bauhaus">Material educativo escrito por la Dra. Naylen Medina</p>
+        <p class="subtitulo-bauhaus">Desliza para ver más ➜</p>
 
-        <div class="grid-ebooks">
-          <article class="ebook">
-            <div class="ebook__portada">
-              <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=400" alt="Portada Guía del Embarazo">
-              <span class="ebook__badge">Más vendido</span>
-            </div>
-            <div class="ebook__contenido">
-              <h3 class="subtitulo-bauhaus">Guía del Embarazo Mes a Mes</h3>
-              <p class="ebook__descripcion">Todo lo que necesitas saber desde el primer mes hasta el parto.</p>
-              <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 60 páginas</span><span class="ebook__precio">$15</span></div>
-              <a href="https://wa.me/584124803139?text=Hola,%20quiero%20comprar%20la%20Guía%20del%20Embarazo" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
-            </div>
-          </article>
+        <div class="carrusel-contenedor">
+          <div class="carrusel">
+            <article class="ebook">
+              <div class="ebook__portada">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=400" alt="Portada Guía del Embarazo">
+                <span class="ebook__badge">Más vendido</span>
+              </div>
+              <div class="ebook__contenido">
+                <h3 class="subtitulo-bauhaus">Guía del Embarazo Mes a Mes</h3>
+                <p class="ebook__descripcion">Todo lo que necesitas saber desde el primer mes hasta el parto.</p>
+                <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 60 páginas</span><span class="ebook__precio">$15</span></div>
+                <a href="https://wa.me/584124803139?text=Hola,%20quiero%20comprar%20la%20Guía%20del%20Embarazo" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
+              </div>
+            </article>
 
-          <article class="ebook">
-            <div class="ebook__portada"><img src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?auto=format&fit=crop&q=80&w=400" alt="Portada Menopausia"></div>
-            <div class="ebook__contenido">
-              <h3 class="subtitulo-bauhaus">Menopausia sin Miedos</h3>
-              <p class="ebook__descripcion">Una guía práctica para entender los cambios hormonales y vivir con plenitud.</p>
-              <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 45 páginas</span><span class="ebook__precio">$12</span></div>
-              <a href="https://wa.me/584124803139?text=Hola,%20quiero%20comprar%20Menopausia%20sin%20Miedos" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
-            </div>
-          </article>
+            <article class="ebook">
+              <div class="ebook__portada"><img src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?auto=format&fit=crop&q=80&w=400" alt="Portada Menopausia"></div>
+              <div class="ebook__contenido">
+                <h3 class="subtitulo-bauhaus">Menopausia sin Miedos</h3>
+                <p class="ebook__descripcion">Una guía práctica para entender los cambios hormonales y vivir con plenitud.</p>
+                <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 45 páginas</span><span class="ebook__precio">$12</span></div>
+                <a href="https://wa.me/584124803139?text=Hola,%20quiero%20comprar%20Menopausia%20sin%20Miedos" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
+              </div>
+            </article>
 
-          <article class="ebook">
-            <div class="ebook__portada"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80&w=400" alt="Portada Cuidado Íntimo"></div>
-            <div class="ebook__contenido">
-              <h3 class="subtitulo-bauhaus">Cuidado Íntimo Femenino</h3>
-              <p class="ebook__descripcion">Aprende a cuidar tu salud íntima, higiene, infecciones y anticoncepción.</p>
-              <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 40 páginas</span><span class="ebook__precio">$10</span></div>
-              <a href="https://wa.me/584124803139?text=Hola,%20quiero%20comprar%20Cuidado%20Íntimo" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
-            </div>
-          </article>
-          
-          <article class="ebook">
-            <div class="ebook__portada">
-              <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=400" alt="Portada Estética Íntima">
-              <span class="ebook__badge ebook__badge--nuevo">Nuevo</span>
-            </div>
-            <div class="ebook__contenido">
-              <h3 class="subtitulo-bauhaus">Estética Íntima Regenerativa</h3>
-              <p class="ebook__descripcion">Descubre cómo funcionan el Láser CO2, el HIFU vaginal y el plasma.</p>
-              <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 35 páginas</span><span class="ebook__precio">$18</span></div>
-              <a href="https://wa.me/584124803139?text=Hola,%20quiero%20comprar%20Estética%20Íntima" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
-            </div>
-          </article>
+            <article class="ebook">
+              <div class="ebook__portada"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80&w=400" alt="Portada Cuidado Íntimo"></div>
+              <div class="ebook__contenido">
+                <h3 class="subtitulo-bauhaus">Cuidado Íntimo Femenino</h3>
+                <p class="ebook__descripcion">Aprende a cuidar tu salud íntima, higiene, infecciones y anticoncepción.</p>
+                <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 40 páginas</span><span class="ebook__precio">$10</span></div>
+                <a href="https://wa.me/584124803139?text=Hola,%20quiero%20comprar%20Cuidado%20Íntimo" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
+              </div>
+            </article>
+            
+            <article class="ebook">
+              <div class="ebook__portada">
+                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=400" alt="Portada Estética Íntima">
+                <span class="ebook__badge ebook__badge--nuevo">Nuevo</span>
+              </div>
+              <div class="ebook__contenido">
+                <h3 class="subtitulo-bauhaus">Estética Íntima Regenerativa</h3>
+                <p class="ebook__descripcion">Descubre cómo funcionan el Láser CO2, el HIFU vaginal y el plasma.</p>
+                <div class="ebook__meta"><span class="ebook__formato">📄 PDF · 35 páginas</span><span class="ebook__precio">$18</span></div>
+                <a href="https://wa.me/584124803139?text=Hola,%20quiero%20comprar%20Estética%20Íntima" target="_blank" class="btn btn--full btn--whatsapp">Comprar ahora</a>
+              </div>
+            </article>
+          </div>
         </div>
 
         <div class="ebooks__aviso">
