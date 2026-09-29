@@ -109,38 +109,11 @@
     .aviso-cita__texto h2 { color: var(--secundario); margin-bottom: 1rem; }
 
     /* ===== CARRUSELES (SERVICIOS Y EBOOKS) ===== */
-    .carrusel-contenedor {
-      position: relative;
-      margin: 0 -1rem; /* Expandir un poco a los lados */
-      padding: 0 1rem;
-      overflow: hidden; /* Evita que se salga de la pantalla */
-    }
-
-    .carrusel {
-      display: flex;
-      gap: 1.5rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 1.5rem;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE */
-      scroll-behavior: smooth;
-    }
-
-    .carrusel::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Brave */
-    }
-
-    .card, .ebook {
-      flex: 0 0 300px; /* Tamaño fijo para cada tarjeta en el carrusel */
-      scroll-snap-align: center;
-      max-width: 300px;
-    }
-
-    /* Ajuste para pantallas muy pequeñas */
-    @media (max-width: 400px) {
-      .card, .ebook { flex: 0 0 260px; max-width: 260px; }
-    }
+    .carrusel-contenedor { position: relative; margin: 0 -1rem; padding: 0 1rem; overflow: hidden; }
+    .carrusel { display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1.5rem; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; }
+    .carrusel::-webkit-scrollbar { display: none; }
+    .card, .ebook { flex: 0 0 300px; scroll-snap-align: center; max-width: 300px; }
+    @media (max-width: 400px) { .card, .ebook { flex: 0 0 260px; max-width: 260px; } }
 
     /* ===== TARJETAS (SERVICIOS) ===== */
     .card { background: #fff; border: 1px solid var(--borde); border-radius: var(--radio); padding: 2rem 1.5rem; transition: transform .3s, box-shadow .3s; display: flex; flex-direction: column; }
@@ -255,7 +228,7 @@
   <header class="header">
     <div class="contenedor header__inner">
       <a href="#inicio" class="logo">
-        <img src="logo.jpg" alt="GinecoSalud Logo">
+        <img src="logo.png" alt="GinecoSalud Logo">
       </a>
       <nav class="nav">
         <a href="#servicios">Servicios</a>
@@ -517,7 +490,7 @@
 
   <footer class="footer">
     <div class="contenedor footer__inner">
-      <div class="footer__logo"><img src="logo.jpg" alt="GinecoSalud" style="height: 50px;"></div>
+      <div class="footer__logo"><img src="logo.png" alt="GinecoSalud" style="height: 50px;"></div>
       <p>&copy; 2025 GinecoSalud - Dra. Naylen Medina. Todos los derechos reservados.</p>
       <div class="footer__links">
         <a href="https://instagram.com/ginecosalud_" target="_blank">Instagram</a>
